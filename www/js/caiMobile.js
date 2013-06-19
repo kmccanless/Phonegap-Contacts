@@ -16,6 +16,9 @@ var caiMobile = angular.module('caiMobile', []).
             when('/contact/:id/edit', {
                 templateUrl: 'contactEdit.html',
                 controller: "editCtrl"
+            }).otherwise(
+            {
+                redirectTo: '/'
             });
         $locationProvider.html5Mode(true);
     }]);
