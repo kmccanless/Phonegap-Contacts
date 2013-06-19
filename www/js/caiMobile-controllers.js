@@ -7,6 +7,7 @@ caiMobile.controller('listCtrl', function ContactListCtrl($scope, $http,$locatio
             }
         });
     $scope.getContactDetails = function(email) {
+        console.log(email);
         $location.path( '/contact/' +  email );
     }
 });
