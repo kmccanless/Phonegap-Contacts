@@ -1,10 +1,10 @@
 var caiMobile = angular.module('caiMobile', []).
     config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
-           /* when('/', {
+            when('/', {
                 templateUrl: 'contactList.html',
                 controller: "listCtrl"
-            }).*/
+            }).
             when('/contact/:id', {
                 templateUrl: 'contactShow.html',
                 controller: "showCtrl"
