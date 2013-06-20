@@ -1,4 +1,4 @@
-var caiMobile = angular.module('caiMobile', [])/*.
+var caiMobile = angular.module('caiMobile', []).
     config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
             when('/', {
@@ -21,4 +21,4 @@ var caiMobile = angular.module('caiMobile', [])/*.
                 redirectTo: '/'
             });
         $locationProvider.html5Mode(true);
-    }])*/;
+    }]);

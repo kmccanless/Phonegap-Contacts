@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,6 +10,48 @@
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <div class="text-center">
+            <h2>Contacts</h2>
+        </div>
+    </div>
+</div>
+<div ng-view></div>
+<script id="contactList.html" type="text/ng-template">
+    <input type="text" class="search-query" placeholder="Search" ng-model="query" style='margin-top:10px;margin-bottom:10px'/>
+    <ul ng-repeat="contact in contacts | filter:query">
+        <li ng-click="getContactDetails(contact.email)">
+            <strong>{{contact.fullname}}</strong>
+            <div class='subtext'>{{contact.email}}</div>
+        </li>
+    </ul>
+</script>
+<script id="contactShow.html" type="text/ng-template">
+    <div class='well'>
+        <div>
+            <b>Full Name</b>
+        </div>
+        <div>
+            <p>{{contact.fullname}}</p>
+        </div>
+        <div>
+            <b>Email</b>
+        </div>
+        <div>
+            <a href='mailTo:{{contact.email}}'>{{contact.email}}</a>
+        </div>
+        <div>
+            <b>Phone</b>
+        </div>
+        <div>
+            <p>{{contact.phone}}</p>
+        </div>
+    </div>
+    <div style='text-align:center'>
+        <button type="button" class="btn btn-primary" ng-click="back()">Back</button>
+    </div>
+</script>
+<!--<div class="navbar navbar-inverse navbar-static-top">
     <div class="navbar-inner">
         <div class="text-center">
             <h4>Contacts</h4>
@@ -27,7 +69,7 @@
 <div ng-controller="showCtrl">
     <button class="btn" ng-click="showController()">Click Me</button>
     <div>{{alert}}</div>
-</div>
+</div>-->
 <script type="text/javascript" src="phonegap.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script src="js/angular.min.js"></script>

@@ -8,7 +8,7 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 h4 {
-    color: #cccccc;
+    color: #DDD;
 }
 ul,
 li {
