@@ -1,9 +1,11 @@
 caiMobile.controller('listCtrl', function ContactListCtrl($scope, $http,$location) {
-    $scope.number = 999;
     $http.get('http://obscure-caverns-8872.herokuapp.com/contacts').
         success(function(data, status, headers, config){
             if(data){
+                console.log("data is not null");
                 $scope.contacts = data.contacts;
+            } else {
+                console.log("data is null");
             }
         });
     $scope.getContactDetails = function(email) {
@@ -13,10 +15,6 @@ caiMobile.controller('listCtrl', function ContactListCtrl($scope, $http,$locatio
 });
 
 caiMobile.controller('showCtrl', function ContactShowCtrl($scope, $http, $routeParams, $location) {
-    $scope.showController = function() {
-        console.log("clicked");
-        return 'showCtrl';
-    }
     $http.get('http://obscure-caverns-8872.herokuapp.com/contact/'+$routeParams.id).
         success(function(data, status, headers, config) {
             if(data){
