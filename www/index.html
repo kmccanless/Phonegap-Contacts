@@ -9,12 +9,19 @@
     <title>Phonegap Contacts</title>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-inverse navbar-static-top" ng-controller='listCtrl'>
     <div class="navbar-inner">
         <div class="text-center">
             <h2>Contacts</h2>
         </div>
     </div>
+    <input type="text" class="search-query" placeholder="Search" ng-model="query" style='margin-top:10px;margin-bottom:10px'/>
+    <ul ng-repeat="contact in contacts | filter:query">
+        <li ng-click="getContactDetails(contact.email)">
+            <strong>{{contact.fullname}}</strong>
+            <div class='subtext'>{{contact.email}}</div>
+        </li>
+    </ul>
 </div>
 <div ng-view></div>
 <script id="contactList.html" type="text/ng-template">
@@ -71,6 +78,7 @@
     <div>{{alert}}</div>
 </div>-->
 <script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-mobile.min.js"></script>
